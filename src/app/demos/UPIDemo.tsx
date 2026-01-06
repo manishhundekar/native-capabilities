@@ -127,8 +127,8 @@ export default function UPIDemo({ mode }: Props) {
     setResult(null);
     
     const paymentParams = {
-      pa: 'test@upi',  // Payee VPA
-      pn: 'Test Merchant',  // Payee name
+      pa: 'testupihandler@ibl',  // Payee VPA
+      pn: 'Manish',  // Payee name
       am: '1.00',  // Amount
       tn: 'Test payment',  // Transaction note
       cu: 'INR',  // Currency
@@ -180,9 +180,9 @@ export default function UPIDemo({ mode }: Props) {
 // Can only try to open - cannot detect apps or get response
 
 const paymentParams = {
-  pa: 'merchant@upi',  // Payee VPA (UPI ID)
-  pn: 'Merchant Name',  // Payee display name
-  am: '100.00',         // Amount
+  pa: 'testupihandler@ibl',  // Payee VPA (UPI ID)
+  pn: 'Manish',  // Payee display name
+  am: '1.00',         // Amount
   tn: 'Order #12345',   // Transaction note
   cu: 'INR',            // Currency
   tr: 'TXN123456',      // Transaction reference (optional)
@@ -218,9 +218,9 @@ const apps = await window.NativeBridge.getUPIApps();
 
 // Trigger payment with specific app
 const result = await window.NativeBridge.triggerUPIPayment({
-  pa: 'merchant@upi',
-  pn: 'Merchant Name',
-  am: '100.00',
+  pa: 'testupihandler@ibl',
+  pn: 'Manish',
+  am: '1.00',
   tn: 'Order #12345',
   packageName: 'com.google.android.apps.nbu.paisa.user' // Optional: specific app
 });
@@ -412,7 +412,7 @@ class UPIBridge(private val activity: Activity) {
             <div className="bg-bg-elevated rounded-lg p-4 mb-4">
               <div className="text-sm text-text-muted mb-2">Test Payment Details</div>
               <div className="grid grid-cols-2 gap-2 text-sm">
-                <div>Payee: test@upi</div>
+                <div>Payee: testupihandler@ibl</div>
                 <div>Amount: ₹1.00</div>
               </div>
             </div>
